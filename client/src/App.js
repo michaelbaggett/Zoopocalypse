@@ -5,6 +5,7 @@ import zooAnimals from "./zooAnimals.json";
 //import { Link } from "react-router-dom";
 import LogIn from "./pages/login";
 import Test from "./pages/test";
+import "./App.css";
 
 class App extends Component {
   state = {
