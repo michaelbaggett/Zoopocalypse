@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from '../images/header/zooapocolypsLogo.png';
+import logo from '../images/header/zooapocolyps_logo.png';
 
 export class Header extends Component {
   render() {
     return (
       <div className="wrapper" style={logoStyle}>
-        <img src={logo} alt="Logo" style={imgStyle} />;
+        <img src={logo} alt="Logo" style={imgStyle} />
       </div>
     )
   }
