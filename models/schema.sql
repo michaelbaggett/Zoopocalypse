@@ -5,6 +5,16 @@ USE zoopocalypse;
 CREATE TABLE animals (
 	id INT AUTO_INCREMENT,
 	animal_name VARCHAR(10),
+	first_letter VARCHAR(1),
+	second_letter VARCHAR(1),
+	third_letter VARCHAR(1),
+	fourth_letter VARCHAR(1),
+	fifth_letter VARCHAR(1),
+	sixth_letter VARCHAR(1),
+	seventh_letter VARCHAR(1),
+	eighth_letter VARCHAR(1),
+	ninth_letter VARCHAR(1),
+	tenth_letter VARCHAR(1),
 	PRIMARY KEY(id)
 );
 

@@ -1,14 +1,27 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//import AnimalCard from "./components/animals";
+import zooAnimals from "./zooAnimals.json";
+//import { Link } from "react-router-dom";
+import LogIn from "./pages/login";
+import Test from "./pages/test";
 import "./App.css";
-import Header from './components/Header';
 
 class App extends Component {
+  state = {
+    zooAnimals
+  };
+
   render() {
     return (
-      <div className="App">
-       <Header />
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={LogIn} />
+            <Route exact path="/test" component={Test} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
