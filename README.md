@@ -20,3 +20,10 @@ Features
 
 ### Primary Features 
 What separates Zoopocalypse from existing children's games is the fact that it requires spelling and memory recollection to pass every level. Most existing games require one or the other, typically by either spelling a word based on a picture, matching cards or images, or completing a puzzle based on a picture or spelling.
+<hr>
+
+### Mockups:
+
+Login/Create New Account Card
+
+![alt text](./client/images/zpLoginCard.svg "Login Page Mockup")
