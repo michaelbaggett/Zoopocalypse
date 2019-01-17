@@ -25,5 +25,35 @@ What separates Zoopocalypse from existing children's games is the fact that it r
 ### Mockups:
 
 Login/Create New Account Card
+![alt text](./images_mockup/zpLoginCard.png "Login Page Mockup")
 
-![alt text](./client/images/zpLoginCard.svg "Login Page Mockup")
+Game Start Card
+![alt text](./images_mockup/zpPlayStartCard1.png "Game Start-Play Page Mockup-1")
+
+Game In-Play Card
+![alt text](./images_mockup/zpPlayStartCard2.png "Game In-Play Page Mockup-1")
+
+Game In-Play Card
+![alt text](./images_mockup/zpPlayStartCard3.png "Game In-Play Page Mockup-2")
+
+Game In-Play Card
+![alt text](./images_mockup/zpPlayWinCard.png "Game Play-WIn Page Mockup")
+
+Game Progress Card
+![alt text](./images_mockup/zpPlayProgressCard.png "Game Progress Page Mockup")
+
+### Colors:
+
+![alt text](./images_mockup/colors/blue.png "Blue Image")
+
+![alt text](./images_mockup/colors/green.png "Green Image")
+
+![alt text](./images_mockup/colors/lightBlue.png "Light Blue Image")
+
+![alt text](./images_mockup/colors/magenta.png "Magenta Image")
+
+![alt text](./images_mockup/colors/purple.png "Purple Image")
+
+![alt text](./images_mockup/colors/red.png "Red Image")
+
+![alt text](./images_mockup/colors/yellow.png "Yellow Image")
