@@ -2,49 +2,112 @@ import React, { Component } from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import API from "../utils/API";
+import { Redirect } from "react-router";
 import Login from "../components/Login";
 
 class LogIn extends Component {
+  state = {
+    username: "",
+    password: "",
+    isAuth: false
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleLogin = event => {
+    event.preventDefault();
+    console.log(this.state);
+    const { username, password } = this.state;
+    API.userLogin({ username, password }).then(res => {
+      console.log(res.data);
+      if (res.data.isAuth) {
+        this.setState({
+          isAuth: true
+        });
+      }
+    });
+  };
+
+  handleSignup = event => {
+    event.preventDefault();
+    console.log(this.state);
+    const { username, password } = this.state;
+    API.userSignup({ username, password }).then(res => {
+      console.log(res.data);
+      if (res.data.isAuth) {
+        this.setState({
+          isAuth: true
+        });
+      }
+    });
+  };
+
   render() {
     return (
-     <div className="Site">
-      <div className="Site-content">
-
-        {/* Header */}
-        <div classname="App-header">
-          <Header />
-        </div>
-
-        {/* Main Game Card contents goes below: */}
-        <div className="main">
-        <Login />
-          {/* <div className="card">
-            <div style={cardStyle}>
-              <img src={AnimalImage} alt="Logo" style={imageStyle} />
-              <p>Demo Card</p>
+      <div className="Site">
+        {this.state.isAuth ? (
+          <Redirect to="/test" />
+        ) : (
+          <div className="Site-content">
+            {/* Header */}
+            <div className="App-header">
+              <Header />
             </div>
-          </div> */}
-        </div>
-          
-        {/* Footer */}
-        <Footer />
-        </div>
-
-     </div>
-    )
+            LogIn
+            <br />
+            <form>
+              <input
+                name="username"
+                value={this.state.username}
+                placeholder="username"
+                onChange={this.handleInputChange}
+              />
+              <input
+                name="password"
+                value={this.state.password}
+                placeholder="password"
+                onChange={this.handleInputChange}
+              />
+              <button type="submit" onClick={this.handleLogin}>
+                SUBMIT
+              </button>
+            </form>
+            <br />
+            <br />
+            Signup
+            <br />
+            <form>
+              <input
+                name="username"
+                value={this.state.username}
+                placeholder="username"
+                onChange={this.handleInputChange}
+              />
+              <input
+                name="password"
+                value={this.state.password}
+                placeholder="password"
+                onChange={this.handleInputChange}
+              />
+              <button type="submit" onClick={this.handleSignup}>
+                SUBMIT
+              </button>
+            </form>
+            <br />
+            <br />
+            {/* Footer */}
+            <Footer />
+          </div>
+        )}
+      </div>
+    );
   }
 }
-// const imageStyle={
-//   width: "175px",
-//   background: "#50D737",
-// }
-// const cardStyle = {
-//   background: "white",
-//   width: "175px",
-//   border: "solid 5px purple",
-//   borderRadius: "10px",
-//   textAlign: "center",
-//   marginLeft: "20px",
-// }
 
 export default LogIn;
