@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header";
-<<<<<<< HEAD
-import AnimalImage from "../images/1920b077029194de4d8b40d585e4ddf6.png";
-=======
 import AnimalCard from "../components/AnimalCard";
->>>>>>> master
 
 const imageStyle = {
   width: "175px",
@@ -23,19 +19,7 @@ class Test extends Component {
     return (
       <div>
         <Header />
-<<<<<<< HEAD
-        {/* Main Game Card contents goes below: */}
-        <div className="main">
-          <div className="card">
-            <div style={cardStyle}>
-              <img src={AnimalImage} alt="Logo" style={imageStyle} />
-              <p>Demo Card</p>
-            </div>
-          </div>
-        </div>
-=======
         <AnimalCard />
->>>>>>> master
       </div>
     );
   }

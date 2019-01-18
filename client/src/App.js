@@ -14,14 +14,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-<<<<<<< HEAD
-=======
-              {/* Login Page/ Landing Page Route */}
->>>>>>> master
+            {/* Login Page/ Landing Page Route */}
             <Route exact path="/" component={LogIn} />
-              {/* Game Play Page Route */}
+            {/* Game Play Page Route */}
             <Route exact path="/play" component={Play} />
-               {/* Testing Route */}
+            {/* Testing Route */}
             <Route exact path="/test" component={Test} />
           </Switch>
         </div>
