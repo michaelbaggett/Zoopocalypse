@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Header from "../components/Header";
+import AnimalCard from "../components/AnimalCard";
 
 class Test extends Component {
   render() {
     return (
       <div>
         <Header />
-        <h1>Testing testing 123</h1>
+        <AnimalCard />
       </div>
     );
   }
