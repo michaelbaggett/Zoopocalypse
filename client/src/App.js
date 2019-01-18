@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LogIn from "./pages/login";
 import Test from "./pages/test";
 import "./App.css";
+import Play from "./pages/play";
 
 class App extends Component {
   render() {
@@ -13,8 +14,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
+<<<<<<< HEAD
+=======
+              {/* Login Page/ Landing Page Route */}
+>>>>>>> master
             <Route exact path="/" component={LogIn} />
-
+              {/* Game Play Page Route */}
+            <Route exact path="/play" component={Play} />
+               {/* Testing Route */}
             <Route exact path="/test" component={Test} />
           </Switch>
         </div>

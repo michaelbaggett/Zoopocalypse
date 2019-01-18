@@ -2,8 +2,12 @@ import React, { Component } from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+<<<<<<< HEAD
 import API from "../utils/API";
 import { Redirect } from "react-router";
+=======
+import Login from "../components/Login";
+>>>>>>> master
 
 class LogIn extends Component {
   state = {
