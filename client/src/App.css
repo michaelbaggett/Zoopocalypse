@@ -1,8 +1,10 @@
-h1 {
-  text-align: center;
-  color: gray;
-  background: pink;
-  margin-top: 0px;
+body {
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, #26C6C4 0%, white 110%);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 @keyframes App-logo-spin {
