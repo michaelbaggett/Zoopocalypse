@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import AnimalCard from "../components/animals";
 
 class LogIn extends Component {
   render() {
@@ -16,7 +17,7 @@ class LogIn extends Component {
 
         {/* Main Game Card content goes below: */}
         <div className="main">
-        
+          
         </div>
           
         {/* Footer */}
