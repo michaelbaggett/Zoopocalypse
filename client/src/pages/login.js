@@ -10,7 +10,8 @@ class LogIn extends Component {
   state = {
     username: "",
     password: "",
-    isAuth: false
+    isAuth: false,
+    login: false
   };
 
   handleInputChange = event => {
@@ -48,6 +49,13 @@ class LogIn extends Component {
     });
   };
 
+  toggleForms = event => {
+    event.preventDefault();
+    this.setState({
+      login: !this.state.login
+    });
+  };
+
   render() {
     return (
       <div className="Site">
@@ -59,48 +67,52 @@ class LogIn extends Component {
             <div className="App-header">
               <Header />
             </div>
-            LogIn
-            <br />
-            <form>
-              <input
-                name="username"
-                value={this.state.username}
-                placeholder="username"
-                onChange={this.handleInputChange}
-              />
-              <input
-                name="password"
-                value={this.state.password}
-                placeholder="password"
-                onChange={this.handleInputChange}
-              />
-              <button type="submit" onClick={this.handleLogin}>
-                SUBMIT
-              </button>
-            </form>
-            <br />
-            <br />
-            Signup
-            <br />
-            <form>
-              <input
-                name="username"
-                value={this.state.username}
-                placeholder="username"
-                onChange={this.handleInputChange}
-              />
-              <input
-                name="password"
-                value={this.state.password}
-                placeholder="password"
-                onChange={this.handleInputChange}
-              />
-              <button type="submit" onClick={this.handleSignup}>
-                SUBMIT
-              </button>
-            </form>
-            <br />
-            <br />
+            {this.state.login ? (
+              <div>
+                LogIn
+                <br />
+                <form>
+                  <input
+                    name="username"
+                    value={this.state.username}
+                    placeholder="username"
+                    onChange={this.handleInputChange}
+                  />
+                  <input
+                    name="password"
+                    value={this.state.password}
+                    placeholder="password"
+                    onChange={this.handleInputChange}
+                  />
+                  <button type="submit" onClick={this.handleLogin}>
+                    SUBMIT
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <div>
+                Signup
+                <br />
+                <form>
+                  <input
+                    name="username"
+                    value={this.state.username}
+                    placeholder="username"
+                    onChange={this.handleInputChange}
+                  />
+                  <input
+                    name="password"
+                    value={this.state.password}
+                    placeholder="password"
+                    onChange={this.handleInputChange}
+                  />
+                  <button type="submit" onClick={this.handleSignup}>
+                    SUBMIT
+                  </button>
+                </form>
+              </div>
+            )}
+            <button onClick={this.toggleForms}>TEST</button>
             {/* Footer */}
             <Footer />
           </div>
