@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt-nodejs");
+const { logger } = require("./../logger");
 
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define("User", {
@@ -24,10 +25,12 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.prototype.validPassword = function(password) {
+    logger.log("password attempt");
     return bcrypt.compareSync(password, this.password);
   };
 
   User.hook("beforeCreate", function(user) {
+    logger.info("password before create hook", user.name);
     user.password = bcrypt.hashSync(
       user.password,
       bcrypt.genSaltSync(10),
