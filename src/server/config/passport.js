@@ -1,5 +1,6 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+const { logger } = require("./../logger");
 
 var db = require("../models");
 
@@ -11,6 +12,7 @@ passport.use(
       }
     })
       .then(function(dbUser) {
+        logger.info("passport db", dbUser);
         if (!dbUser) {
           return done(null, false, {
             message: "Incorrect username"
@@ -27,10 +29,12 @@ passport.use(
 );
 
 passport.serializeUser(function(user, cb) {
+  logger.info("serialize", user);
   cb(null, user);
 });
 
 passport.deserializeUser(function(obj, cb) {
+  logger.info("deserializeUser", obj);
   cb(null, obj);
 });
 

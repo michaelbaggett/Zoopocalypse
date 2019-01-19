@@ -1,8 +1,11 @@
 const db = require("../../models");
 const passport = require("../../config/passport");
 const router = require("express").Router();
+const { logger } = require("./../../logger");
 
 router.route("/login").post(passport.authenticate("local"), (req, res) => {
+  // you can place req.body here, but then you log the password to console...bad call.
+  logger.info("login route hit");
   const { username, password } = req.body;
 
   console.log("user login");
@@ -12,6 +15,7 @@ router.route("/login").post(passport.authenticate("local"), (req, res) => {
 });
 
 router.route("/signup").post((req, res) => {
+  logger.info("signup route hit");
   const { username, password } = req.body;
   db.User.create({
     username,
