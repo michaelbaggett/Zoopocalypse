@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Redirect } from "react-router";
-import Login from "../components/Login";
+// import Login from "../components/Login";
 
 class LogIn extends Component {
   state = {
@@ -26,6 +26,7 @@ class LogIn extends Component {
     console.log(this.state);
     const { username, password } = this.state;
     API.userLogin({ username, password }).then(res => {
+      // pls remove console logs. easy peasy way to get haxxored
       console.log(res.data);
       if (res.data.isAuth) {
         this.setState({
