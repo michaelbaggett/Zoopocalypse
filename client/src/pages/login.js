@@ -82,6 +82,7 @@ class LogIn extends Component {
                     name="password"
                     value={this.state.password}
                     placeholder="password"
+                    type="password"
                     onChange={this.handleInputChange}
                   />
                   <button type="submit" onClick={this.handleLogin}>
@@ -104,6 +105,7 @@ class LogIn extends Component {
                     name="password"
                     value={this.state.password}
                     placeholder="password"
+                    type="password"
                     onChange={this.handleInputChange}
                   />
                   <button type="submit" onClick={this.handleSignup}>
