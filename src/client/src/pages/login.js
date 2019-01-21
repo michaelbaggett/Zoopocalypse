@@ -11,7 +11,9 @@ class LogIn extends Component {
     username: "",
     password: "",
     isAuth: false,
-    login: false
+    login: false,
+    phone: "",
+    age: ""
   };
 
   handleInputChange = event => {
@@ -39,8 +41,8 @@ class LogIn extends Component {
   handleSignup = event => {
     event.preventDefault();
     console.log(this.state);
-    const { username, password } = this.state;
-    API.userSignup({ username, password }).then(res => {
+    const { username, password, phone, age } = this.state;
+    API.userSignup({ username, password, phone, age }).then(res => {
       console.log(res.data);
       if (res.data.isAuth) {
         this.setState({
@@ -64,21 +66,26 @@ class LogIn extends Component {
           <Redirect to="/test" />
         ) : (
           <div className="Site-content">
-            {/* Header */}
+ {/* Header */}
             <div className="App-header">
               <Header />
             </div>
             {this.state.login ? (
-              <div>
-                LogIn
+              <div className="card" style={loginCardStyle}>
+                <h3>LogIn or
+                <a onClick={this.toggleForms} style={{ color: "yellow"}}> Register</a>
+                </h3>
+                
                 <br />
                 <form>
+{/* Login Form  */}
                   <input
                     name="username"
                     value={this.state.username}
                     placeholder="username"
                     onChange={this.handleInputChange}
                   />
+                  <br />
                   <input
                     name="password"
                     value={this.state.password}
@@ -86,29 +93,47 @@ class LogIn extends Component {
                     type="password"
                     onChange={this.handleInputChange}
                   />
+                  <br />
                   <button type="submit" onClick={this.handleLogin}>
                     SUBMIT
                   </button>
                 </form>
               </div>
             ) : (
-              <div>
-                Signup
+// New Account
+              <div className="card" style={loginCardStyle}>
+                Create Account or
+                <a onClick={this.toggleForms}> LogIn</a>
                 <br />
                 <form>
                   <input
                     name="username"
                     value={this.state.username}
-                    placeholder="username"
+                    placeholder="New Username"
                     onChange={this.handleInputChange}
                   />
+                  <br />
                   <input
                     name="password"
                     value={this.state.password}
-                    placeholder="password"
-                    type="password"
+                    placeholder="New Password"
                     onChange={this.handleInputChange}
                   />
+                  <br />
+                  <input
+                    name="phone"
+                    value={this.state.phone}
+                    placeholder="Your phone number?"
+                    onChange={this.handleInputChange}
+                  />
+                  <br />
+                  <input
+                    name="age"
+                    value={this.state.age}
+                    placeholder="Your age?"
+                    onChange={this.handleInputChange}
+                  />
+                  <br />
                   <button type="submit" onClick={this.handleSignup}>
                     SUBMIT
                   </button>
@@ -126,3 +151,15 @@ class LogIn extends Component {
 }
 
 export default LogIn;
+
+const loginCardStyle = {
+  textAlign: "center",
+  border: "solid 4px",
+  margin: "20px",
+  width: "300px"
+}
+
+const formStyle = {
+  width: "150px",
+  margin: "0px",
+}
