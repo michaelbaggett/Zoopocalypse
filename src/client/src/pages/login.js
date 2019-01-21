@@ -46,6 +46,7 @@ class LogIn extends Component {
         this.setState({
           isAuth: true
         });
+        console.log(username + ": is authorized");
       }
     });
   };

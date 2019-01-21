@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import AnimalImage from "../../images/elephant.png";
+import zooAnimals from "../../zooAnimals.json";
+import TestAnimalCard from "../animals";
 
 export class AnimalCard extends Component {
+  state = {
+    zooAnimals
+  };
+
   render() {
     return (
       <div className="card">
@@ -15,6 +21,18 @@ export class AnimalCard extends Component {
     );
   }
 }
+
+// <div>
+//   {this.state.zooAnimals.map(animal => (
+//     <AnimalCard
+//       id={animal.id}
+//       key={animal.id}
+//       name={animal.animal_name}
+//       image={animal.image}
+//       blanks={animal.blanks}
+//     />
+//   ))}
+// </div>;
 
 const imageStyle = {
   width: "175px",
