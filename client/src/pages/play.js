@@ -4,7 +4,18 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimalCard from "../components/AnimalCard";
 
+import API from "../utils/API";
+
 class Play extends Component {
+
+    loadAnimals = () => {
+        API.getAnimals()
+          .then(res =>
+            this.setState({ animals: res.data, animal_name: "", image: "" })
+          )
+          .catch(err => console.log(err));
+      };
+
   render() {
     return (
      <div className="Site">

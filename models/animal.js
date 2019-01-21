@@ -1,9 +1,15 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database");
+//I think the below is good to go, but I guess we eventually need to associate the animals and users with a foreign key? Not sure how that will work.
 
-const animal = db.define("animal", {
+
+const animal = sequelize.define("animal", {
     name: {
         type: Sequelize.STRING
+    },
+    image: {
+        type: Sequelize.STRING
+    },
+    completed: {
+        type: Sequelize.BOOL
     }
 });
 

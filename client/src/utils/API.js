@@ -6,5 +6,8 @@ export default {
   },
   userSignup: function(userCreds) {
     return axios.post("/api/auth/signup", userCreds);
+  },
+  getAnimals: function() {
+    return axios.get("/api/animals");
   }
 };
