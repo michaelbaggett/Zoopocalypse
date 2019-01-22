@@ -6,7 +6,7 @@ export class AnimalCard extends Component {
     super(props);
     this.state = {
       barsVisible: props.animal.split("").map(e => true),
-      name: props.animal.split(""),
+      name: props.animal.split("").map(e => "_ "),
     }
    
    
@@ -44,6 +44,9 @@ export class AnimalCard extends Component {
               })
           }
           <h1>{this.state.name}</h1> 
+          <h3>Tried Letters will go here</h3> 
+          <button>Get A Hint</button>
+          <p>hint should go here</p>
         </div>
       </div>
     );
