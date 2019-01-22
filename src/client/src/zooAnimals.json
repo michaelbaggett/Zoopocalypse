@@ -1,8 +1,20 @@
 [
   {
     "id": 1,
-    "animal_name": "Sheep",
-    "image": "https://i.pinimg.com/474x/59/7c/7e/597c7eff1f8e9b2feaf9f3e13c975c18--sheep-cartoon-funny-sheep.jpg",
+    "animal_name": "bat",
+    "image": "(url ./images/bat.png)",
+    "blanks": "_  _  _"
+  },
+  {
+    "id": 2,
+    "animal_name": "bear",
+    "image": "./images/bear.png",
+    "blanks": "_  _  _  _"
+  },
+  {
+    "id": 3,
+    "animal_name": "llama",
+    "image": "./images/llama.png",
     "blanks": "_  _  _  _  _"
   }
 ]
