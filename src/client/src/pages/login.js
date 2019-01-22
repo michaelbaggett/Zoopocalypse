@@ -72,14 +72,15 @@ class LogIn extends Component {
             </div>
             {this.state.login ? (
               <div className="card" style={loginCardStyle}>
-                <h3>LogIn or
-                <a onClick={this.toggleForms} style={{ color: "yellow"}}> Register</a>
+                <h3 style={h3ButtonStyle}>Login or 
+                  <a onClick={this.toggleForms} style={{ color: "#26C6C4" }}> Register</a>
                 </h3>
                 
                 <br />
                 <form>
 {/* Login Form  */}
                   <input
+                    style={inputStyle}
                     name="username"
                     value={this.state.username}
                     placeholder="username"
@@ -87,6 +88,7 @@ class LogIn extends Component {
                   />
                   <br />
                   <input
+                    style={inputStyle}
                     name="password"
                     value={this.state.password}
                     placeholder="password"
@@ -94,7 +96,7 @@ class LogIn extends Component {
                     onChange={this.handleInputChange}
                   />
                   <br />
-                  <button type="submit" onClick={this.handleLogin}>
+                  <button type="submit" onClick={this.handleLogin} style={buttonStyle }>
                     SUBMIT
                   </button>
                 </form>
@@ -102,11 +104,13 @@ class LogIn extends Component {
             ) : (
 // New Account
               <div className="card" style={loginCardStyle}>
-                Create Account or
-                <a onClick={this.toggleForms}> LogIn</a>
+                <h3 style={h3ButtonStyle} >Create Account or 
+                <a onClick={this.toggleForms} style={{ color: "#26C6C4" }}> Login</a>
+                </h3>
                 <br />
                 <form>
                   <input
+                    style={inputStyle}
                     name="username"
                     value={this.state.username}
                     placeholder="New Username"
@@ -114,6 +118,7 @@ class LogIn extends Component {
                   />
                   <br />
                   <input
+                    style={inputStyle}
                     name="password"
                     value={this.state.password}
                     placeholder="New Password"
@@ -121,6 +126,7 @@ class LogIn extends Component {
                   />
                   <br />
                   <input
+                    style={inputStyle}
                     name="phone"
                     value={this.state.phone}
                     placeholder="Your phone number?"
@@ -128,19 +134,19 @@ class LogIn extends Component {
                   />
                   <br />
                   <input
+                    style={inputStyle}
                     name="age"
                     value={this.state.age}
                     placeholder="Your age?"
                     onChange={this.handleInputChange}
                   />
                   <br />
-                  <button type="submit" onClick={this.handleSignup}>
+                  <button type="submit" onClick={this.handleSignup} style={buttonStyle}>
                     SUBMIT
                   </button>
                 </form>
               </div>
             )}
-            <button onClick={this.toggleForms}>TEST</button>
             {/* Footer */}
             <Footer />
           </div>
@@ -154,12 +160,36 @@ export default LogIn;
 
 const loginCardStyle = {
   textAlign: "center",
-  border: "solid 4px",
-  margin: "20px",
-  width: "300px"
+  border: "4px solid #7B5D94",
+  margin: "auto",
+  marginTop: "25px",
+  width: "300px",
+  backgroundColor: "#156369", 
+  borderRadius: "25px",
 }
 
-const formStyle = {
-  width: "150px",
-  margin: "0px",
+const buttonStyle = {
+  background: "#E96C64",
+  borderRadius: "5px",
+  borderColor: "#E96C64",
+  marginTop: "10px",
+  marginBottom: "10px",
 }
+
+const h3ButtonStyle = {
+  textAlign: "center",
+  borderBottom: "4px solid #7B5D94",
+  margin: "auto",
+  marginTop: "20px",
+  paddingBottom:"15px",
+  width: "250px",
+  color: "#F6E769",
+}
+
+const inputStyle = {
+  backgroundColor: "#CAFFF2",
+  margin: "3px",
+  borderRadius: "5px",
+  height: "30px",
+  width: "220px",
+ }
