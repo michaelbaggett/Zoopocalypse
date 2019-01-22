@@ -16,6 +16,18 @@ export class AnimalCard extends Component {
   }
 }
 
+// <div>
+//   {this.state.zooAnimals.map(animal => (
+//     <AnimalCard
+//       id={animal.id}
+//       key={animal.id}
+//       name={animal.animal_name}
+//       image={animal.image}
+//       blanks={animal.blanks}
+//     />
+//   ))}
+// </div>;
+
 const imageStyle = {
   width: "175px",
   background: "#50D737"

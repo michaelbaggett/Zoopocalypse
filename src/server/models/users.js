@@ -7,20 +7,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
+    // email: {
+    //   type: DataTypes.STRING,
+    //   unique: true,
+    //   validate: {
+    //     isEmail: true
+    //   }
+    // },
     password: {
       type: DataTypes.STRING,
       allowNull: false
     },
     age: {
       type: DataTypes.INTEGER
-      // allowNull: false
+    },
+    phone: {
+      type: DataTypes.INTEGER
     }
   });
 
@@ -29,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     return bcrypt.compareSync(password, this.password);
   };
 
-  User.hook("beforeCreate", function(user) {
+  User.addHook("beforeCreate", function(user) {
     logger.info("password before create hook", user.name);
     user.password = bcrypt.hashSync(
       user.password,
