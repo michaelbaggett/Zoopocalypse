@@ -13,6 +13,7 @@ export class Header extends Component {
 
 const logoStyle = {
    textAlign: "center",
+   marginTop: "20px",
 }
 
 const imgStyle = {

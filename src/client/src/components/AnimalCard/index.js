@@ -1,25 +1,31 @@
 import React, { Component } from "react";
-import AnimalImage from "../../images/elephant.png";
+import animal from "../../images/elephant.png";
+import bar from "../../images/cageBars.png";
 
 export class AnimalCard extends Component {
   render() {
     return (
-      <div className="card">
-        <h1>This is the page where the game is played.</h1>
-        <p>Route: "/play"</p>
-        <div style={cardStyle}>
-          <img src={AnimalImage} alt="Logo" style={imageStyle} />
-          <p>Demo Animal Card</p>
+      <div className="card" style={playerCardStyle }>
+        <div>
+          <img src={animal} alt="Animal" style={imgStyle} />
+          <img src={bar} style={ barStyle} />
         </div>
       </div>
     );
   }
 }
 
-const imageStyle = {
-  width: "175px",
-  background: "#50D737"
+const imgStyle = {
+ // width: "175px",
+  height: "175px",
+  background: "#50D737",
+  border: "4px solid #444",
+  borderRadius: "15px",
 };
+const barStyle = {
+  height: "175px",
+  zIndex: "10",
+}
 const cardStyle = {
   background: "white",
   width: "175px",
@@ -28,5 +34,14 @@ const cardStyle = {
   textAlign: "center",
   marginLeft: "20px"
 };
+const playerCardStyle = {
+  textAlign: "center",
+  border: "4px solid #7B5D94",
+  margin: "auto",
+  marginTop: "25px",
+  width: "300px",
+  backgroundColor: "#156369", 
+  borderRadius: "25px",
+}
 
 export default AnimalCard;
