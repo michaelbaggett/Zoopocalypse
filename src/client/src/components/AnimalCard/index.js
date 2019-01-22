@@ -3,6 +3,8 @@ import animal from "../../images/elephant.png";
 import bar from "../../images/cageBars.png";
 
 export class AnimalCard extends Component {
+
+  
   render() {
     return (
       <div className="card" style={playerCardStyle }>

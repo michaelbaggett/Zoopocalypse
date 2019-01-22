@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Redirect } from "react-router";
-// import Login from "../components/Login";
+//import Login from "../components/Login";
 
 class LogIn extends Component {
   state = {
@@ -12,8 +12,8 @@ class LogIn extends Component {
     password: "",
     isAuth: false,
     login: false,
-    phone: "",
-    age: ""
+    age: "",
+    phone: ""
   };
 
   handleInputChange = event => {
@@ -28,8 +28,6 @@ class LogIn extends Component {
     console.log(this.state);
     const { username, password } = this.state;
     API.userLogin({ username, password }).then(res => {
-      // pls remove console logs. easy peasy way to get haxxored
-      console.log(res.data);
       if (res.data.isAuth) {
         this.setState({
           isAuth: true
@@ -48,6 +46,7 @@ class LogIn extends Component {
         this.setState({
           isAuth: true
         });
+        console.log(username + ": is authorized");
       }
     });
   };
@@ -66,19 +65,23 @@ class LogIn extends Component {
           <Redirect to="/test" />
         ) : (
           <div className="Site-content">
- {/* Header */}
+            {/* Header */}
             <div className="App-header">
               <Header />
             </div>
             {this.state.login ? (
               <div className="card" style={loginCardStyle}>
-                <h3 style={h3ButtonStyle}>Login or 
-                  <a onClick={this.toggleForms} style={{ color: "#26C6C4" }}> Register</a>
+                <h3 style={h3ButtonStyle}>
+                  Login or
+                  <a onClick={this.toggleForms} style={{ color: "#26C6C4" }}>
+                    {" "}
+                    Register
+                  </a>
                 </h3>
-                
+
                 <br />
                 <form>
-{/* Login Form  */}
+                  {/* Login Form  */}
                   <input
                     style={inputStyle}
                     name="username"
@@ -96,16 +99,24 @@ class LogIn extends Component {
                     onChange={this.handleInputChange}
                   />
                   <br />
-                  <button type="submit" onClick={this.handleLogin} style={buttonStyle }>
+                  <button
+                    type="submit"
+                    onClick={this.handleLogin}
+                    style={buttonStyle}
+                  >
                     SUBMIT
                   </button>
                 </form>
               </div>
             ) : (
-// New Account
+              // New Account
               <div className="card" style={loginCardStyle}>
-                <h3 style={h3ButtonStyle} >Create Account or 
-                <a onClick={this.toggleForms} style={{ color: "#26C6C4" }}> Login</a>
+                <h3 style={h3ButtonStyle}>
+                  Create Account or
+                  <a onClick={this.toggleForms} style={{ color: "#26C6C4" }}>
+                    {" "}
+                    Login
+                  </a>
                 </h3>
                 <br />
                 <form>
@@ -120,6 +131,7 @@ class LogIn extends Component {
                   <input
                     style={inputStyle}
                     name="password"
+                    type="password"
                     value={this.state.password}
                     placeholder="New Password"
                     onChange={this.handleInputChange}
@@ -141,7 +153,11 @@ class LogIn extends Component {
                     onChange={this.handleInputChange}
                   />
                   <br />
-                  <button type="submit" onClick={this.handleSignup} style={buttonStyle}>
+                  <button
+                    type="submit"
+                    onClick={this.handleSignup}
+                    style={buttonStyle}
+                  >
                     SUBMIT
                   </button>
                 </form>
@@ -164,31 +180,31 @@ const loginCardStyle = {
   margin: "auto",
   marginTop: "25px",
   width: "300px",
-  backgroundColor: "#156369", 
-  borderRadius: "25px",
-}
+  backgroundColor: "#156369",
+  borderRadius: "25px"
+};
 
 const buttonStyle = {
   background: "#E96C64",
   borderRadius: "5px",
   borderColor: "#E96C64",
   marginTop: "10px",
-  marginBottom: "10px",
-}
+  marginBottom: "10px"
+};
 
 const h3ButtonStyle = {
   textAlign: "center",
   borderBottom: "4px solid #7B5D94",
   margin: "auto",
   marginTop: "20px",
-  paddingBottom:"15px",
+  paddingBottom: "15px",
   width: "250px",
-  color: "#F6E769",
-}
+  color: "#F6E769"
+};
 
 const inputStyle = {
   margin: "3px",
   borderRadius: "5px",
   height: "30px",
-  width: "220px",
- }
+  width: "220px"
+};
