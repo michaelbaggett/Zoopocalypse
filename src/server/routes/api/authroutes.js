@@ -32,6 +32,17 @@ router.route("/signup").post((req, res) => {
     });
 });
 
+router.route("/logout").get((req, res) => {
+  console.log(req + "this is my /logout req");
+  req.logout();
+  const resObj = { success: false };
+  if (!req.user) {
+    resObj.success = true;
+  }
+
+  res.send(resObj);
+});
+
 // router.route("/login").post(passport.authenticate("local"), (req, res) => {
 //   const { body } = req;
 //   const { username, email, password, age } = body;

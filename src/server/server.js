@@ -35,25 +35,25 @@ app.use(passport.session());
 app.use(routes);
 
 // asynchronous stuff needs to be checked and exceptions/errors need to be caught.
-try {
-  db.sequelize.sync(syncOptions).then(() => {
-    logger.log("sequelize initialized");
-    db.User.create({
-      username: "asdf",
-      password: "asdf"
-    })
-      .then(() => {
-        logger.log("first user created");
-      })
-      .catch(err => {
-        logger.error("An error occurred while creating a user", err);
-      });
-  });
-  // .catch(err => {
-  //   logger.error("An error occurred while initializing the database");
-} catch (e) {
-  logger.error("sequelize error", e);
-}
+// try {
+db.sequelize.sync(syncOptions).then(() => {
+  db.User.create({
+    username: "asdf",
+    password: "asdf"
+  }).then(console.log("user created"));
+});
+//       .then(() => {
+//         logger.log("first user created");
+//       })
+//       .catch(err => {
+//         logger.error("An error occurred while creating a user", err);
+//       });
+//   });
+// .catch(err => {
+//   logger.error("An error occurred while initializing the database");
+// } catch (e) {
+//   logger.error("sequelize error", e);
+// }
 
 app.listen(PORT, () => {
   logger.log({
