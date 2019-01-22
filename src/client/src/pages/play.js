@@ -5,6 +5,15 @@ import Footer from "../components/Footer";
 import AnimalCard from "../components/AnimalCard";
 
 class Play extends Component {
+  // make an api request for which animal is being played
+
+  state = {
+    name: ""
+  };
+  componentWillMount() {
+    //api call deciding which animal
+    this.setState({ name: "bat" });
+  }
   render() {
     return (
       <div className="Site">
@@ -16,7 +25,7 @@ class Play extends Component {
 
           {/* Main Game Card contents goes below: */}
           <div className="main">
-            <AnimalCard />
+            <AnimalCard animal={this.state.name} />
           </div>
 
           {/* Footer */}
