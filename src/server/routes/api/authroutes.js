@@ -16,10 +16,12 @@ router.route("/login").post(passport.authenticate("local"), (req, res) => {
 
 router.route("/signup").post((req, res) => {
   logger.info("signup route hit");
-  const { username, password } = req.body;
+  const { username, password, age, phone } = req.body;
   db.User.create({
     username,
-    password
+    password,
+    age,
+    phone
   })
     .then(() => {
       res.redirect(307, "/api/auth/login");

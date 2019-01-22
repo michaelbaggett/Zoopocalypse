@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Redirect } from "react-router";
-// import Login from "../components/Login";
+//import Login from "../components/Login";
 
 class LogIn extends Component {
   state = {
@@ -12,8 +12,8 @@ class LogIn extends Component {
     password: "",
     isAuth: false,
     login: false,
-    phone: "",
-    age: ""
+    age: "",
+    phone: ""
   };
 
   handleInputChange = event => {
@@ -28,8 +28,6 @@ class LogIn extends Component {
     console.log(this.state);
     const { username, password } = this.state;
     API.userLogin({ username, password }).then(res => {
-      // pls remove console logs. easy peasy way to get haxxored
-      console.log(res.data);
       if (res.data.isAuth) {
         this.setState({
           isAuth: true
@@ -41,8 +39,8 @@ class LogIn extends Component {
   handleSignup = event => {
     event.preventDefault();
     console.log(this.state);
-    const { username, password, phone, age } = this.state;
-    API.userSignup({ username, password, phone, age }).then(res => {
+    const { username, password } = this.state;
+    API.userSignup({ username, password }).then(res => {
       console.log(res.data);
       if (res.data.isAuth) {
         this.setState({
@@ -67,19 +65,23 @@ class LogIn extends Component {
           <Redirect to="/test" />
         ) : (
           <div className="Site-content">
- {/* Header */}
+            {/* Header */}
             <div className="App-header">
               <Header />
             </div>
             {this.state.login ? (
               <div className="card" style={loginCardStyle}>
-                <h3>LogIn or
-                <a onClick={this.toggleForms} style={{ color: "yellow"}}> Register</a>
+                <h3>
+                  LogIn or
+                  <a onClick={this.toggleForms} style={{ color: "yellow" }}>
+                    {" "}
+                    Register
+                  </a>
                 </h3>
-                
+
                 <br />
                 <form>
-{/* Login Form  */}
+                  {/* Login Form  */}
                   <input
                     name="username"
                     value={this.state.username}
@@ -101,7 +103,7 @@ class LogIn extends Component {
                 </form>
               </div>
             ) : (
-// New Account
+              // New Account
               <div className="card" style={loginCardStyle}>
                 Create Account or
                 <a onClick={this.toggleForms}> LogIn</a>
@@ -158,9 +160,9 @@ const loginCardStyle = {
   border: "solid 4px",
   margin: "20px",
   width: "300px"
-}
+};
 
 const formStyle = {
   width: "150px",
-  margin: "0px",
-}
+  margin: "0px"
+};

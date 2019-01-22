@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import AnimalImage from "../../images/elephant.png";
-import zooAnimals from "../../zooAnimals.json";
-import TestAnimalCard from "../animals";
 
 export class AnimalCard extends Component {
-  state = {
-    zooAnimals
-  };
-
   render() {
     return (
       <div className="card">

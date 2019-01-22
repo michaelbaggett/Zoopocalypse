@@ -38,7 +38,10 @@ app.use(routes);
 try {
   db.sequelize.sync(syncOptions).then(() => {
     logger.log("sequelize initialized");
-    db.User.create({ username: "asdf", password: "asdf" })
+    db.User.create({
+      username: "asdf",
+      password: "asdf"
+    })
       .then(() => {
         logger.log("first user created");
       })
