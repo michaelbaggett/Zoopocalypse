@@ -13,12 +13,10 @@ class StatusCard extends Component {
         {this.state.completed ? (
           <div className="card">
             <div className="animalstatus">
-              <div
-                className="img-container"
-                style={{ backgroundColor: "green" }}
-              >
+              <div className="img-container" style={cardStyle}>
                 <img
                   className="image"
+                  style={imageStyle}
                   alt={this.props.name}
                   src={this.props.image}
                 />
