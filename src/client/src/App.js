@@ -22,6 +22,7 @@ class App extends Component {
             {/* Testing Route */}
             <Route exact path="/test" component={Test} />
             {/* Route to view Progress */}
+
             <Route exact path="/progress" component={Progress} />
           </Switch>
         </div>
