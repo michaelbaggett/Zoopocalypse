@@ -7,9 +7,17 @@ import API from "../utils/API";
 import { Redirect } from "react-router";
 
 class Play extends Component {
+
+  // make an api request for which animal is being played
+
   state = {
+    name: "",
     userLogInStatus: false
   };
+  componentWillMount() {
+    //api call deciding which animal
+    this.setState({ name: "bat" });
+  }
   //  Give this component a state with { loggedOut: false }
   //  inside the API promise, setState to { loggedOut: true }
   //  In the Render thing, created a check thing to render a Redirect if this.state.loggedOut
@@ -38,11 +46,19 @@ class Play extends Component {
               <Header />
             </div>
 
+
+          {/* Main Game Card contents goes below: */}
+          <div className="main">
+            <button onClick={this.userSignOut}> BYE </button>
+            <AnimalCard animal={this.state.name} />
+          </div>
+
             {/* Main Game Card contents goes below: */}
             <div className="main">
               <button onClick={this.userSignOut}> BYE </button>
               <AnimalCard />
             </div>
+
 
             {/* Footer */}
             <Footer />

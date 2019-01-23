@@ -121,7 +121,7 @@ class LogIn extends Component {
                 <br />
                 <form>
                   <input
-                    style={inputStyle}
+                    style={ inputStyle}
                     name="username"
                     value={this.state.username}
                     placeholder="New Username"
@@ -203,7 +203,6 @@ const h3ButtonStyle = {
 };
 
 const inputStyle = {
-  backgroundColor: "#CAFFF2",
   margin: "3px",
   borderRadius: "5px",
   height: "30px",
