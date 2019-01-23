@@ -11,11 +11,12 @@ class Play extends Component {
 
   state = {
     name: "",
+    hint: "",
     userLogInStatus: false
   };
   componentWillMount() {
     //api call deciding which animal
-    this.setState({ name: "bat" });
+    this.setState({ name: "tiger", hint: "Starts with b" });
   }
   //  Give this component a state with { loggedOut: false }
   //  inside the API promise, setState to { loggedOut: true }
@@ -47,8 +48,8 @@ class Play extends Component {
 
             {/* Main Game Card contents goes below: */}
             <div className="main">
-              <button onClick={this.userSignOut}> BYE </button>
-              <AnimalCard animal={this.state.name} />
+              <button onClick={this.userSignOut}> LOGOUT</button>
+              <AnimalCard animal={this.state.name} hint={this.state.hint} />
             </div>
 
             {/* Footer */}

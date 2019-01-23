@@ -8,24 +8,41 @@ export class AnimalCard extends Component {
       barsVisible: props.animal.split("").map(e => true),
       name: props.animal.split("").map(e => "_ "),
       letters: [],
-      guessLog: [],
       targetPosition: 0,
       message: "",
+      hint: "",
+      isComplete: false,
     };
+  }
+
+  handleHintButton = event => {
+    event.preventDefault();
+    this.setState({
+      hint: "please dont ask",
+    });
+  }
+  handleResetButton = event => {
+    event.preventDefault();
+    this.setState({
+      barsVisible: this.props.animal.split("").map(e => true),
+      name: this.props.animal.split("").map(e => "_ "),
+      letters: [],
+      targetPosition: 0,
+      message: "",
+      hint: "",
+      isComplete: false,
+    })
   }
 
   onKeyUp = event => {
     const word = this.props.animal; // word to guess
     const name = [...this.state.name];
     const letters = [...this.state.letters]; // total letters guessed
-    const guessLog = [...this.state.guessLog]; // incorrect guesses
+    // const guessLog = [...this.state.guessLog];  incorrect guesses
     const barsVisible = [...this.state.barsVisible];
     //event.key.touppercase is making the letter pressed uppercase and pusing to the letters array in the state
     const key = event.key.toLowerCase();
 
-    // is this a valid key or not?
-    // check barsVisible and start at the first true
-    console.log('word', word, this.state.targetPosition);
       if (key === word[this.state.targetPosition]) {
         barsVisible[this.state.targetPosition] = false;
 
@@ -33,7 +50,8 @@ export class AnimalCard extends Component {
 
         if(this.state.targetPosition === word.length -1){
           this.setState({
-            message: "Word Complete!"
+            message: "Word Complete!",
+            isComplete: true,
           });
         }
 
@@ -76,7 +94,7 @@ export class AnimalCard extends Component {
                   position: "absolute",
                   top: 0,
                   opacity: visible ? 1 : 0,
-                  left: index * 60
+                  left: (index + 0.5) * 260/(this.state.barsVisible.length || 0.00001),
                 }}
               >
                 <img src={bar} alt="Cage Bars" style={barStyle} />
@@ -86,7 +104,10 @@ export class AnimalCard extends Component {
           <h1>{this.state.name}</h1>
           <h3>{this.state.letters}</h3>
 
-          <button>Get A Hint</button>
+          <button onClick={this.handleHintButton}>Get A Hint</button>
+          <button onClick={this.handleResetButton}>Reset</button>
+          
+          <h1>{this.state.hint}</h1>
           <div>
             <p>{this.state.message}</p>
           </div>
