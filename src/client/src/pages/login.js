@@ -4,7 +4,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Redirect } from "react-router";
-//import Login from "../components/Login";
+
+//import Login from "../components/Login";  
 
 class LogIn extends Component {
   state = {
