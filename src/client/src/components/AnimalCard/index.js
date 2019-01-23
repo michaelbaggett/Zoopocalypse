@@ -9,30 +9,45 @@ export class AnimalCard extends Component {
       name: props.animal.split("").map(e => "_ "),
       letters: [],
       guessLog: [],
-      targetPosition: 0
+      targetPosition: 0,
+      message: "",
     };
   }
 
   onKeyUp = event => {
     const word = this.props.animal; // word to guess
+    const name = [...this.state.name];
     const letters = [...this.state.letters]; // total letters guessed
     const guessLog = [...this.state.guessLog]; // incorrect guesses
     const barsVisible = [...this.state.barsVisible];
     //event.key.touppercase is making the letter pressed uppercase and pusing to the letters array in the state
-    const key = event.key.toUpperCase();
+    const key = event.key.toLowerCase();
 
     // is this a valid key or not?
     // check barsVisible and start at the first true
-    if (barsVisible) {
+    console.log('word', word, this.state.targetPosition);
       if (key === word[this.state.targetPosition]) {
-      }
-      //    compare the first letter of the word to the user key pressed
-      //    if incorrect - add to the guessLog and display in the appropriate <h3>
-      //    if correct - replace the "_" with the correct letter and update barsVisible = false
-    }
+        barsVisible[this.state.targetPosition] = false;
 
-    letters.push(key);
-    this.setState({ letters, guessLog, barsVisible });
+        name[this.state.targetPosition] = key;
+
+        if(this.state.targetPosition === word.length -1){
+          this.setState({
+            message: "Word Complete!"
+          });
+        }
+
+        this.setState({
+         targetPosition: this.state.targetPosition + 1,
+         barsVisible,
+         name
+        });
+      } else {
+        // adds incorrect letters to the letters arr and updates the h tag
+        letters.push(key);
+        this.setState({ letters, barsVisible });
+      }
+  
   };
 
   componentDidMount() {
@@ -73,7 +88,7 @@ export class AnimalCard extends Component {
 
           <button>Get A Hint</button>
           <div>
-            <p>hint should go here</p>
+            <p>{this.state.message}</p>
           </div>
         </div>
       </div>
