@@ -11,7 +11,7 @@ class Play extends Component {
 
   state = {
 
-    name: "",
+    name: window.location.pathname.split("/")[2].toLowerCase(),
     hint: "",
     userLogInStatus: false
   };
