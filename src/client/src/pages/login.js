@@ -25,7 +25,7 @@ class LogIn extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
     const { username, password } = this.state;
     API.userLogin({ username, password }).then(res => {
       if (res.data.isAuth) {
@@ -38,7 +38,7 @@ class LogIn extends Component {
 
   handleSignup = event => {
     event.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
     const { username, password, phone, age } = this.state;
     API.userSignup({ username, password, phone, age }).then(res => {
       console.log(res.data);
@@ -62,7 +62,7 @@ class LogIn extends Component {
     return (
       <div className="Site">
         {this.state.isAuth ? (
-          <Redirect to="/test" />
+          <Redirect to="/play" />
         ) : (
           <div className="Site-content">
             {/* Header */}

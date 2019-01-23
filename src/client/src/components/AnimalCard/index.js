@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import bar from "../../images/cageBars.png";
 
 
+
 export class AnimalCard extends Component {
   constructor(props){
     super(props);

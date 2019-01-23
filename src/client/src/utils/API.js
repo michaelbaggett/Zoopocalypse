@@ -7,6 +7,9 @@ export default {
   userSignup: function(userCreds) {
     return axios.post("/api/auth/signup", userCreds);
   },
+  userSignOut: function() {
+    return axios.get("/api/auth/logout");
+  },
   getAnimals: function() {
     return axios.get("/api/animals");
   }

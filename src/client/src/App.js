@@ -7,6 +7,7 @@ import LogIn from "./pages/login";
 import Test from "./pages/test";
 import "./App.css";
 import Play from "./pages/play";
+import Progress from "./pages/progress";
 
 class App extends Component {
   render() {
@@ -20,6 +21,9 @@ class App extends Component {
             <Route exact path="/play" component={Play} />
             {/* Testing Route */}
             <Route exact path="/test" component={Test} />
+            {/* Route to view Progress */}
+
+            <Route exact path="/progress" component={Progress} />
           </Switch>
         </div>
       </Router>
