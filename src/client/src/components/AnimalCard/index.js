@@ -9,6 +9,7 @@ export class AnimalCard extends Component {
       name: props.animal.split("").map(e => "_ "),
       letters: [],
       targetPosition: 0,
+
       message: "",
       hint: "",
       isComplete: false,
@@ -43,6 +44,7 @@ export class AnimalCard extends Component {
     //event.key.touppercase is making the letter pressed uppercase and pusing to the letters array in the state
     const key = event.key.toLowerCase();
 
+
       if (key === word[this.state.targetPosition]) {
         barsVisible[this.state.targetPosition] = false;
 
@@ -55,17 +57,22 @@ export class AnimalCard extends Component {
           });
         }
 
+      if (this.state.targetPosition === word.length - 1) {
         this.setState({
-         targetPosition: this.state.targetPosition + 1,
-         barsVisible,
-         name
+          message: "Word Complete!"
         });
-      } else {
-        // adds incorrect letters to the letters arr and updates the h tag
-        letters.push(key);
-        this.setState({ letters, barsVisible });
       }
-  
+
+      this.setState({
+        targetPosition: this.state.targetPosition + 1,
+        barsVisible,
+        name
+      });
+    } else {
+      // adds incorrect letters to the letters arr and updates the h tag
+      letters.push(key);
+      this.setState({ letters, barsVisible });
+    }
   };
 
   componentDidMount() {
@@ -81,7 +88,7 @@ export class AnimalCard extends Component {
       <div className="card" style={playerCardStyle}>
         <div style={imgStyle}>
           <img
-            src={"./images/" + this.props.animal + ".png"}
+            src={"../images/" + this.props.animal + ".png"}
             alt="Animal"
             style={{ height: "100%" }}
           />

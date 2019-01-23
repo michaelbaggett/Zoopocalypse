@@ -10,12 +10,14 @@ class Play extends Component {
   // make an api request for which animal is being played
 
   state = {
+
     name: "",
     hint: "",
     userLogInStatus: false
   };
   componentWillMount() {
     //api call deciding which animal
+
     this.setState({ name: "tiger", hint: "Starts with b" });
   }
   //  Give this component a state with { loggedOut: false }
