@@ -13,12 +13,10 @@ class StatusCard extends Component {
         {this.state.completed ? (
           <div className="card">
             <div className="animalstatus">
-              <div
-                className="img-container"
-                style={{ backgroundColor: "green" }}
-              >
+              <div className="img-container" style={cardStyle}>
                 <img
                   className="image"
+                  style={imageStyle}
                   alt={this.props.name}
                   src={this.props.image}
                 />
@@ -60,50 +58,3 @@ const cardStyle = {
 };
 
 export default StatusCard;
-=======
-  class StatusCard extends Component {
-    // Setting this.state.friends to the friends json array
-    state = {
-      completed: this.props.completed
-
-    };
-  
-    render() {
-        return (
-            <div>
-              { this.state.completed
-                ?     <div className="card">
-        
-                <div className ="animalstatus">
-                    <div className="img-container" style={{backgroundColor: "green"}}>
-                    <img className="image" alt={this.props.name} src={this.props.image} />
-                    </div>
-                    <div>
-                        Status: Freed
-                    </div>
-                
-                </div>
-         
-              </div>
-                :     <div className="card">
-        
-                <div className ="animalstatus">
-                    <div className="img-container">
-                    <img className="image" alt={this.props.name} src={this.props.image} />
-                    </div>
-                    <div>
-                        Status: Caged
-                    </div>
-                
-                </div>
-         
-              </div>
-              }
-            </div>
-          );
-         }
-    }
-  
-  
-  export default StatusCard;
-

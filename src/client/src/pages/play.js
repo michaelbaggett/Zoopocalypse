@@ -7,7 +7,6 @@ import API from "../utils/API";
 import { Redirect } from "react-router";
 
 class Play extends Component {
-
   // make an api request for which animal is being played
 
   state = {
@@ -46,19 +45,11 @@ class Play extends Component {
               <Header />
             </div>
 
-
-          {/* Main Game Card contents goes below: */}
-          <div className="main">
-            <button onClick={this.userSignOut}> BYE </button>
-            <AnimalCard animal={this.state.name} />
-          </div>
-
             {/* Main Game Card contents goes below: */}
             <div className="main">
               <button onClick={this.userSignOut}> BYE </button>
-              <AnimalCard />
+              <AnimalCard animal={this.state.name} />
             </div>
-
 
             {/* Footer */}
             <Footer />
