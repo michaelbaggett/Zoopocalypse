@@ -18,21 +18,3 @@ class PlayerProgress extends Component {
 }
 
 export default PlayerProgress;
-
-
-  class PlayerProgress extends Component {
-    render() {
-        return (
-            <div>
-            {animals.map(animal => (
-                <StatusCard
-                image={animal.image}
-                completed={animal.completed}
-                />
-              ))}
-            </div>
-        );
-    }
-}
-  
-  export default PlayerProgress;

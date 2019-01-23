@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AnimalImage from "../../public/images/elephant.png";
+import AnimalImage from "../../images/elephant.png";
 
 export class AnimalCard extends Component {
   render() {
