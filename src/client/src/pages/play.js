@@ -10,12 +10,13 @@ class Play extends Component {
   // make an api request for which animal is being played
 
   state = {
-    name: "",
+    name: window.location.pathname.split("/")[2].toLowerCase(),
     userLogInStatus: false
   };
   componentWillMount() {
     //api call deciding which animal
-    this.setState({ name: "bat" });
+    // this.setState({ name: "tiger" });
+    console.log(window.location.pathname.split("/")[2]);
   }
   //  Give this component a state with { loggedOut: false }
   //  inside the API promise, setState to { loggedOut: true }
