@@ -2,16 +2,23 @@ const db = require("../../models");
 const passport = require("../../config/passport");
 const router = require("express").Router();
 const { logger } = require("./../../logger");
+const accountSid = "AC70a046ea6c5310a42c3b32595c054efd";
+const authToken = "a7c281b2d3e91d0c3f66fc84904ab49d";
+
+const client = require('twilio')(accountSid, authToken);
 
 router.route("/login").post(passport.authenticate("local"), (req, res) => {
   // you can place req.body here, but then you log the password to console...bad call.
   logger.info("login route hit");
   const { username, password } = req.body;
-
-  console.log("user login");
+  const loginMessage = client.messages.create({
+    to: '+14057613879',
+    from: '+14054454072',
+    body: "Your child has logged in to Zoopocalypse - watch out for the Elephant!!!"
+}).then((message) => console.log("user login"),
   res.json({
-    isAuth: true
-  });
+   isAuth: true 
+  }));
 });
 
 router.route("/signup").post((req, res) => {
@@ -39,7 +46,11 @@ router.route("/logout").get((req, res) => {
   if (!req.user) {
     resObj.success = true;
   }
-
+  const logoutMessage = client.messages.create({
+    to: '+14057613879',
+    from: '+14054454072',
+    body: "Your child has logged out of Zoopocalypse - You're safe......For now"
+});
   res.send(resObj);
 });
 
