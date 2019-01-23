@@ -10,7 +10,7 @@ export class AnimalCard extends Component {
       letters: [],
       guessLog: [],
       targetPosition: 0,
-      message: "",
+      message: ""
     };
   }
 
@@ -25,29 +25,28 @@ export class AnimalCard extends Component {
 
     // is this a valid key or not?
     // check barsVisible and start at the first true
-    console.log('word', word, this.state.targetPosition);
-      if (key === word[this.state.targetPosition]) {
-        barsVisible[this.state.targetPosition] = false;
+    console.log("word", word, this.state.targetPosition);
+    if (key === word[this.state.targetPosition]) {
+      barsVisible[this.state.targetPosition] = false;
 
-        name[this.state.targetPosition] = key;
+      name[this.state.targetPosition] = key;
 
-        if(this.state.targetPosition === word.length -1){
-          this.setState({
-            message: "Word Complete!"
-          });
-        }
-
+      if (this.state.targetPosition === word.length - 1) {
         this.setState({
-         targetPosition: this.state.targetPosition + 1,
-         barsVisible,
-         name
+          message: "Word Complete!"
         });
-      } else {
-        // adds incorrect letters to the letters arr and updates the h tag
-        letters.push(key);
-        this.setState({ letters, barsVisible });
       }
-  
+
+      this.setState({
+        targetPosition: this.state.targetPosition + 1,
+        barsVisible,
+        name
+      });
+    } else {
+      // adds incorrect letters to the letters arr and updates the h tag
+      letters.push(key);
+      this.setState({ letters, barsVisible });
+    }
   };
 
   componentDidMount() {
@@ -63,7 +62,7 @@ export class AnimalCard extends Component {
       <div className="card" style={playerCardStyle}>
         <div style={imgStyle}>
           <img
-            src={"./images/" + this.props.animal + ".png"}
+            src={"../images/" + this.props.animal + ".png"}
             alt="Animal"
             style={{ height: "100%" }}
           />

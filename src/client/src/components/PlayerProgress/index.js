@@ -6,12 +6,17 @@ class PlayerProgress extends Component {
   render() {
     return (
       <div>
-        {animals.map(animal => (
-          <StatusCard
-            image={imageAtlas[animal.animal_name]}
-            completed={animal.completed}
-          />
-        ))}
+        {animals.map(
+          animal =>
+            console.log("statuscard", animal) || (
+              <StatusCard
+                id={animal.id}
+                image={imageAtlas[animal.animal_name]}
+                completed={animal.completed}
+                name={animal.animal_name}
+              />
+            )
+        )}
       </div>
     );
   }

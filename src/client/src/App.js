@@ -18,7 +18,7 @@ class App extends Component {
             {/* Login Page/ Landing Page Route */}
             <Route exact path="/" component={LogIn} />
             {/* Game Play Page Route */}
-            <Route exact path="/play" component={Play} />
+            <Route path="/play" component={Play} />
             {/* Testing Route */}
             <Route exact path="/test" component={Test} />
             {/* Route to view Progress */}

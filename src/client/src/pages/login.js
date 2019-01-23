@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Redirect } from "react-router";
 
-//import Login from "../components/Login";  
+//import Login from "../components/Login";
 
 class LogIn extends Component {
   state = {
@@ -63,7 +63,7 @@ class LogIn extends Component {
     return (
       <div className="Site">
         {this.state.isAuth ? (
-          <Redirect to="/play" />
+          <Redirect to="/progress" />
         ) : (
           <div className="Site-content">
             {/* Header */}
@@ -122,7 +122,7 @@ class LogIn extends Component {
                 <br />
                 <form>
                   <input
-                    style={ inputStyle}
+                    style={inputStyle}
                     name="username"
                     value={this.state.username}
                     placeholder="New Username"
