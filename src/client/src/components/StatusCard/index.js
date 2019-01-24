@@ -69,4 +69,10 @@ const cardStyle = {
   marginLeft: "20px"
 };
 
+const wrapperStyle = {
+  display: "flex",
+  flexFlow: "row wrap",
+  justifyContent: "center"
+};
+
 export default StatusCard;
